@@ -1,0 +1,9 @@
+link : https://www.youtube.com/watch?v=dP75Khfy4s4
+
+install : npx create-next-app@latest
+
+shadcn ui install : 
+    https://ui.shadcn.com/docs/installation
+    npx shadcn-ui@latest init
+
+asa
