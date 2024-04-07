@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { ClerkLoaded, ClerkLoading, SignInButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { Loader } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -12,6 +14,26 @@ export default function Home() {
           Learn, practice and master new languages with VioLingo
         </h1>
       </div>
+      <ClerkLoading>
+        <Loader className="h-5 w-5 text-muted-foreground animate-spin"/>
+      </ClerkLoading>
+      <ClerkLoaded>
+        <SignedOut>
+          <SignUpButton mode="modal" afterSignInUrl="/" afterSignUpUrl="/">
+            <Button className="w-full" size="lg" variant="secondary">
+              Get Started
+            </Button>
+          </SignUpButton>
+          <SignInButton mode="modal" afterSignInUrl="/" afterSignUpUrl="/">
+            <Button className="w-full" size="lg" variant="primaryOutline">
+              I already have an account
+            </Button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+
+        </SignedIn>
+      </ClerkLoaded>
     </div>    
   )
 }
